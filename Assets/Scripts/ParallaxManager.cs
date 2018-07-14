@@ -8,35 +8,47 @@ public class ParallaxManager : ScriptableObject {
 
     public ParallaxImage[] parallaxImages;
 
-    private ParallaxImage parallaxImage;
-
-    private void OnEnable()
-    {
-        parallaxImage = parallaxImages[0];
-    }
-    private void OnDisable()
-    {
-
-    }
-    public ParallaxImage ParallaxImage
+    private ParallaxImage farClipParallaxImage;
+    public ParallaxImage FarClipParallaxImage
     {
         get
         {
-            return parallaxImage;
+            return farClipParallaxImage;
+        }
+    }
+    private ParallaxImage nearClipParallaxImage;
+    public ParallaxImage NearClipParallaxImage
+    {
+        get
+        {
+            return nearClipParallaxImage;
         }
     }
 
-    public void ChangePallaxImage(string ID)
+    private void OnEnable()
+    {
+        farClipParallaxImage = parallaxImages[0];
+        nearClipParallaxImage = parallaxImages[1];
+    }
+
+    public void ChangeParallaxImage(string ID,bool isFarClip)
     {
 
         foreach (ParallaxImage image in parallaxImages)
         {
-            if (image.ID == ID)
+            if (image.name == ID)
             {
-                //image.material.SetTextureOffset(image.material, new Vector2(0, 0));
-                parallaxImage = image;
+                if (isFarClip)
+                {
+                    farClipParallaxImage.material.SetTextureOffset("_MainTex", new Vector2(0, 0));
+                    farClipParallaxImage = image;
+                }
+                else
+                {
+                    nearClipParallaxImage.material.SetTextureOffset("_MainTex", new Vector2(0, 0));
+                    nearClipParallaxImage = image;
+                }
             }
         }
     }
-
 }

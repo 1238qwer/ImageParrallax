@@ -9,9 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 236597ccc3c541649967f8db5d9a4fd9, type: 3}
-  m_Name: Bubble
+  m_Name: bubble
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: f997f59c1bfa0f8428c565200194fe11, type: 2}
-  parallaxVector: {x: 1, y: 0}
-  ID: test1
   parallaxSpeed: 0.1
+  parallaxVector: {x: 1, y: 0}

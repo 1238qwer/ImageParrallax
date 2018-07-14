@@ -5,9 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ParallaxImage : ScriptableObject {
 
-    public Material material;  
-    public string ID;
-    public float parallaxSpeed;
-
+    public Material material;
     public Vector2 parallaxVector;
+    public float parallaxSpeed;
 }
